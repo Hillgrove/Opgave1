@@ -1,6 +1,4 @@
 ﻿
-using Opgave1;
-
 namespace Opgave1.Tests
 {
     [TestClass()]
@@ -18,8 +16,6 @@ namespace Opgave1.Tests
             trophyRepo.Add(new Trophy { Id = 4, Competition = "Euro Cup",           Year = 2004 });
             trophyRepo.Add(new Trophy { Id = 5, Competition = "Olympics",           Year = 2008 });
         }
-
-        // MethodName_StateUnderTest_ExpectedBehavior
 
         #region Get Tests
         [TestMethod()]
@@ -250,6 +246,7 @@ namespace Opgave1.Tests
             Assert.AreEqual(expected.Id, actual?.Id);
         }
 
+        [TestMethod()]
         public void GetById_NonExistingId_ReturnsNull()
         {
             // Arrange
