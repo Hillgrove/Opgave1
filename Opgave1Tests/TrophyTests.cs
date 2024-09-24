@@ -79,6 +79,16 @@ namespace Opgave1.Tests
             // Act and Assert
             trophyGood.ValidateCompetition();
         }
+
+        [TestMethod()]
+        public void ValidateCompetition_WhenCompetitionIsMinimumValidLength_DoesNotThrowException()
+        {
+            // Arrange
+            trophyGood.Competition = "abc";
+
+            // Act and Assert
+            trophyGood.ValidateCompetition();
+        }
         #endregion
 
         #region ValidateYear Tests
