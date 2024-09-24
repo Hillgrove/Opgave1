@@ -230,6 +230,17 @@ namespace Opgave1.Tests
                 Assert.AreEqual(expected[i].Year, actual[i].Year);
             }
         }
+
+        [TestMethod()]
+        public void Get_WithInvalidOrderBy_ThrowsArgumentException()
+        {
+            // Act
+            List<Trophy> actual = trophyRepo.Get(orderBy: "Invalid");
+
+            // Assert
+            Assert.AreEqual(5, actual.Count); // Returns entire list unordered
+
+        }
         #endregion
 
         #region GetById Tests
@@ -309,6 +320,22 @@ namespace Opgave1.Tests
 
             // Assert
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void Remove_ExistingId_RemovesTrophyFromList()
+        {
+            // Arrange
+            int idToRemove = 3;
+            
+            // Act
+            Trophy? removedTrophy = trophyRepo.Remove(idToRemove);
+            Trophy? retrievedTrophy = trophyRepo.GetById(idToRemove);
+
+            // Assert
+            Assert.AreEqual(4, trophyRepo.Get().Count);
+            Assert.IsNotNull(removedTrophy);
+            Assert.IsNull(retrievedTrophy);
         }
         #endregion
 
