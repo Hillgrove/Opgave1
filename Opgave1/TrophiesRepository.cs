@@ -1,7 +1,7 @@
 ﻿
 namespace Opgave1
 {
-    class TrophiesRepository
+    public class TrophiesRepository
     {
         private int _nextId = 1;
         private List<Trophy> _trophies = new List<Trophy>();
